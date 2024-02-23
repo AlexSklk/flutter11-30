@@ -4,15 +4,15 @@ final List<String> id = <String>['1', '2', '3', '4', '5', '6', '7', '8', '9', '1
 final List<int> colorCodes = <int> [1000, 900, 800, 700, 600, 500, 400, 300, 200, 100];
 final List<String> photo = <String> [
   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTy0nYtkA3nei-LeDySclnMEF5kOqmHO6LkSA&usqp=CAU",
-"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP7E-HTkzyi9Ct3WYocBqgi2GhAtlQEZvQww&usqp=CAU",
-"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-eEqhPjhgJXamTePRQGr6Z_vv2_gSQsMoaw&usqp=CAU",
-"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLu-R3QucnaSavkO2acotc_bOXSUYgYl7R7w&usqp=CAU",
-"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYs8LCUwckz76zEOlPrEyy-X2BNo9z7boPXw&usqp=CAU",
-"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4-tgL2Z76AUpk6s3u7TzQoSrtv_ZmPjRmlg&usqp=CAU",
-"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLHFYHUkPDe3L7WyqyfhEkzR937isBIkq0uTXYADtxKOmrJN_1bYe1Wo1RhqiHw92xovg&usqp=CAU",
-"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3BGxtypnMy8MpGYCcnLs-5pp_QTPuroQOotpGlq-9nxavVvj1-6heDl72PxtIxWOjXws&usqp=CAU",
-"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyeebfZeznz7UmYCaJguohIHKYJh7A5Xq3CQ&usqp=CAU",
-"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSl0k9FM_GvRc4qQgVZYBXSTfDFZ_y6pWnSjg&usqp=CAU"];
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP7E-HTkzyi9Ct3WYocBqgi2GhAtlQEZvQww&usqp=CAU",
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-eEqhPjhgJXamTePRQGr6Z_vv2_gSQsMoaw&usqp=CAU",
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLu-R3QucnaSavkO2acotc_bOXSUYgYl7R7w&usqp=CAU",
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYs8LCUwckz76zEOlPrEyy-X2BNo9z7boPXw&usqp=CAU",
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4-tgL2Z76AUpk6s3u7TzQoSrtv_ZmPjRmlg&usqp=CAU",
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLHFYHUkPDe3L7WyqyfhEkzR937isBIkq0uTXYADtxKOmrJN_1bYe1Wo1RhqiHw92xovg&usqp=CAU",
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3BGxtypnMy8MpGYCcnLs-5pp_QTPuroQOotpGlq-9nxavVvj1-6heDl72PxtIxWOjXws&usqp=CAU",
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyeebfZeznz7UmYCaJguohIHKYJh7A5Xq3CQ&usqp=CAU",
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSl0k9FM_GvRc4qQgVZYBXSTfDFZ_y6pWnSjg&usqp=CAU"];
 void main() {
   runApp(
     MaterialApp(
@@ -43,7 +43,9 @@ class FirstScreen extends StatelessWidget {
         ),
         body: Stack(
             children: <Widget> [
-              Center(child: ElevatedButton(
+              Align(
+                alignment: Alignment(0.6, 0.0),
+                  child: ElevatedButton(
                 style: ButtonStyle(
 
                     shape: MaterialStateProperty.all(
@@ -61,7 +63,7 @@ class FirstScreen extends StatelessWidget {
                 child: const Text('Launch screen'),
               )),
               Align(
-                  alignment: const Alignment(-0.3, 0.0),
+                  alignment: const Alignment(-0.9, 0.0),
                   child: Container(
 
                     decoration: BoxDecoration(borderRadius: BorderRadius.circular(5),
@@ -77,7 +79,7 @@ class FirstScreen extends StatelessWidget {
 
               ),
               Align(
-                  alignment: const Alignment(-0.3, 0.1),
+                  alignment: const Alignment(-0.9, 0.2),
                   child: Container(
 
                     decoration: BoxDecoration(borderRadius: BorderRadius.circular(5),
@@ -112,7 +114,9 @@ class SecondScreen extends StatelessWidget {
       ),
       body: Stack(
           children: <Widget> [
-            Center(child: ElevatedButton(
+            Align(
+              alignment: Alignment(0.6,0.0),
+                child: ElevatedButton(
               style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.black
               ),
@@ -125,7 +129,7 @@ class SecondScreen extends StatelessWidget {
               child: const Text('Fun screen'),
             )),
             Align(
-                alignment: const Alignment(-0.3, 0.0),
+                alignment: const Alignment(-0.9, 0.0),
                 child: Container(
 
                   decoration: BoxDecoration(borderRadius: BorderRadius.circular(5),
@@ -138,7 +142,7 @@ class SecondScreen extends StatelessWidget {
                       icon: Icon(Icons.accessible_forward_rounded),
                       labelText: 'Login'
                   ),),)),
-            Align(alignment: const Alignment(-0.3, 0.1),
+            Align(alignment: const Alignment(-0.9, 0.2),
                 child: Container(
 
                   decoration: BoxDecoration(borderRadius: BorderRadius.circular(5),
