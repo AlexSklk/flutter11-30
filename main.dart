@@ -211,28 +211,153 @@ class ThirdScreen extends StatelessWidget {
           Container(
             padding: const EdgeInsets.all(8),
             color: Colors.teal[200],
-            child: const Text('Heed not the rabble'),
-          ),
+            child: Stack(
+          children: [
+          const Text("He'd have you all unravel at the"),
+          Align(
+            alignment: Alignment.center,
+            child: ElevatedButton(
+              style: ButtonStyle(
+
+                  shape: MaterialStateProperty.all(
+                      RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(40),
+                          side: const BorderSide(width: 3, color: Colors.black)
+                      )
+                  )
+              ),
+              // Within the `FirstScreen` widget
+              onPressed: () {
+                // Navigate to the second screen using a named route.
+                Navigator.pushNamed(context, '/second');
+              },
+              child: const Text('Launch screen'),
+            ),
+          )
+        ],
+      )
+    ),
+
           Container(
             padding: const EdgeInsets.all(8),
             color: Colors.teal[300],
-            child: const Text('Sound of screams but the'),
-          ),
+            child: Stack(
+            children: [
+            const Text("He'd have you all unravel at the"),
+    Align(
+    alignment: Alignment.center,
+    child: ElevatedButton(
+    style: ButtonStyle(
+
+    shape: MaterialStateProperty.all(
+    RoundedRectangleBorder(
+    borderRadius: BorderRadius.circular(40),
+    side: const BorderSide(width: 3, color: Colors.black)
+    )
+    )
+    ),
+    // Within the `FirstScreen` widget
+    onPressed: () {
+    // Navigate to the second screen using a named route.
+    Navigator.pushNamed(context, '/second');
+    },
+    child: const Text('Launch screen'),
+    ),
+    )
+    ],
+    )
+    ),
+
           Container(
             padding: const EdgeInsets.all(8),
             color: Colors.teal[400],
-            child: const Text('Who scream'),
-          ),
+            child: Stack(
+            children: [
+            const Text("He'd have you all unravel at the"),
+    Align(
+    alignment: Alignment.center,
+    child: ElevatedButton(
+    style: ButtonStyle(
+
+    shape: MaterialStateProperty.all(
+    RoundedRectangleBorder(
+    borderRadius: BorderRadius.circular(40),
+    side: const BorderSide(width: 3, color: Colors.black)
+    )
+    )
+    ),
+    // Within the `FirstScreen` widget
+    onPressed: () {
+    // Navigate to the second screen using a named route.
+    Navigator.pushNamed(context, '/second');
+    },
+    child: const Text('Launch screen'),
+    ),
+    )
+    ],
+    )
+    ),
+
           Container(
             padding: const EdgeInsets.all(8),
             color: Colors.teal[500],
-            child: const Text('Revolution is coming...'),
-          ),
+            child: Stack(
+            children: [
+            const Text("He'd have you all unravel at the"),
+            Align(
+            alignment: Alignment.center,
+            child: ElevatedButton(
+            style: ButtonStyle(
+
+            shape: MaterialStateProperty.all(
+            RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(40),
+            side: const BorderSide(width: 3, color: Colors.black)
+            )
+            )
+            ),
+            // Within the `FirstScreen` widget
+            onPressed: () {
+            // Navigate to the second screen using a named route.
+            Navigator.pushNamed(context, '/second');
+            },
+            child: const Text('Launch screen'),
+    ),
+    )
+    ],
+    )
+    ),
+
           Container(
             padding: const EdgeInsets.all(8),
             color: Colors.teal[600],
-            child: const Text('Revolution, they...'),
-          ),
+            child: Stack(
+            children: [
+            const Text("He'd have you all unravel at the"),
+    Align(
+    alignment: Alignment.center,
+    child: ElevatedButton(
+    style: ButtonStyle(
+
+    shape: MaterialStateProperty.all(
+    RoundedRectangleBorder(
+    borderRadius: BorderRadius.circular(40),
+    side: const BorderSide(width: 3, color: Colors.black)
+    )
+    )
+    ),
+    // Within the `FirstScreen` widget
+    onPressed: () {
+    // Navigate to the second screen using a named route.
+    Navigator.pushNamed(context, '/second');
+    },
+    child: const Text('Launch screen'),
+    ),
+    )
+    ],
+    )
+    ),
+          
         ],
       )
 
