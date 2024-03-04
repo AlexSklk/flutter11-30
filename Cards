@@ -24,13 +24,14 @@ class ProductScreen extends StatelessWidget {
     'Product 6',
   ];
   final List<String> imageUrls = [
-    'https://ir.ozone.ru/s3/multimedia-0/wc700/6866383968.jpg', // Уникальный URL для Product 1
-    'https://ir.ozone.ru/s3/multimedia-h/wc700/6702216209.jpg', // Уникальный URL для Product 2
-    'https://ir.ozone.ru/s3/multimedia-r/wc700/6469093743.jpg', // Уникальный URL для Product 3
-    'https://ir.ozone.ru/s3/multimedia-x/wc700/6724174281.jpg', // Уникальный URL для Product 4
-    'https://ir.ozone.ru/s3/multimedia-7/wc700/6584018731.jpg', // Уникальный URL для Product 5
-    'https://ir.ozone.ru/s3/multimedia-u/wc700/6712246974.jpg', // Уникальный URL для Product 6
+    'https://ir.ozone.ru/s3/multimedia-4/wc700/6511132360.jpg', // Уникальный URL для Product 1
+    'https://ir.ozone.ru/s3/multimedia-1-9/wc700/6917701221.jpg', // Уникальный URL для Product 2
+    'https://ir.ozone.ru/s3/multimedia-o/wc700/6468680532.jpg', // Уникальный URL для Product 3
+    'https://ir.ozone.ru/s3/multimedia-1/wc700/6703995385.jpg', // Уникальный URL для Product 4
+    'https://ir.ozone.ru/s3/multimedia-4/wc700/6493203712.jpg', // Уникальный URL для Product 5
+    'https://ir.ozone.ru/s3/multimedia-5/wc700/6359567105.jpg', // Уникальный URL для Product 6
   ];
+  final List<double> prices = [99.99, 149.99, 79.99, 129.99, 89.99, 169.99];
 
   @override
   Widget build(BuildContext context) {
@@ -50,6 +51,7 @@ class ProductScreen extends StatelessWidget {
           return ProductItem(
             productName: products[index],
             imageUrl: imageUrls[index],
+            price: prices[index],
           );
         },
       ),
@@ -60,8 +62,9 @@ class ProductScreen extends StatelessWidget {
 class ProductItem extends StatelessWidget {
   final String productName;
   final String imageUrl;
+  final double price;
 
-  ProductItem({required this.productName, required this.imageUrl});
+  ProductItem({required this.productName, required this.imageUrl, required this.price});
 
   @override
   Widget build(BuildContext context) {
@@ -89,7 +92,7 @@ class ProductItem extends StatelessWidget {
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 8.0),
             child: Text(
-              '\$99.99',
+              '\$$price', // Использование уникальной цены для товара
               style: TextStyle(
                 fontSize: 16.0,
                 color: Colors.grey,
