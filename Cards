@@ -1,0 +1,111 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Online Store',
+      home: ProductScreen(),
+    );
+  }
+}
+
+class ProductScreen extends StatelessWidget {
+  final List<String> products = [
+    'Product 1',
+    'Product 2',
+    'Product 3',
+    'Product 4',
+    'Product 5',
+    'Product 6',
+  ];
+  final List<String> imageUrls = [
+    'https://ir.ozone.ru/s3/multimedia-0/wc700/6866383968.jpg', // Уникальный URL для Product 1
+    'https://ir.ozone.ru/s3/multimedia-h/wc700/6702216209.jpg', // Уникальный URL для Product 2
+    'https://ir.ozone.ru/s3/multimedia-r/wc700/6469093743.jpg', // Уникальный URL для Product 3
+    'https://ir.ozone.ru/s3/multimedia-x/wc700/6724174281.jpg', // Уникальный URL для Product 4
+    'https://ir.ozone.ru/s3/multimedia-7/wc700/6584018731.jpg', // Уникальный URL для Product 5
+    'https://ir.ozone.ru/s3/multimedia-u/wc700/6712246974.jpg', // Уникальный URL для Product 6
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Online Store'),
+      ),
+      body: GridView.builder(
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          crossAxisSpacing: 10.0,
+          mainAxisSpacing: 10.0,
+          childAspectRatio: 0.7,
+        ),
+        itemCount: products.length,
+        itemBuilder: (BuildContext context, int index) {
+          return ProductItem(
+            productName: products[index],
+            imageUrl: imageUrls[index],
+          );
+        },
+      ),
+    );
+  }
+}
+
+class ProductItem extends StatelessWidget {
+  final String productName;
+  final String imageUrl;
+
+  ProductItem({required this.productName, required this.imageUrl});
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      elevation: 5.0,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Image.network(
+            imageUrl, // Использование уникального URL для изображения товара
+            height: 700,
+            width: double.infinity,
+            fit: BoxFit.cover,
+          ),
+          Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Text(
+              productName,
+              style: TextStyle(
+                fontSize: 18.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 8.0),
+            child: Text(
+              '\$99.99',
+              style: TextStyle(
+                fontSize: 16.0,
+                color: Colors.grey,
+              ),
+            ),
+          ),
+          SizedBox(height: 8.0),
+          Padding(
+            padding: EdgeInsets.all(8.0),
+            child: ElevatedButton(
+              onPressed: () {},
+              child: Text('Add to Cart'),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
