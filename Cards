@@ -1,114 +1,176 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Online Store',
-      home: ProductScreen(),
-    );
-  }
+@override
+Widget build(BuildContext context) {
+return MaterialApp(
+title: 'Online Store',
+home: ProductScreen(),
+);
+}
 }
 
 class ProductScreen extends StatelessWidget {
-  final List<String> products = [
-    'Product 1',
-    'Product 2',
-    'Product 3',
-    'Product 4',
-    'Product 5',
-    'Product 6',
-  ];
-  final List<String> imageUrls = [
-    'https://ir.ozone.ru/s3/multimedia-4/wc700/6511132360.jpg', // Уникальный URL для Product 1
-    'https://ir.ozone.ru/s3/multimedia-1-9/wc700/6917701221.jpg', // Уникальный URL для Product 2
-    'https://ir.ozone.ru/s3/multimedia-o/wc700/6468680532.jpg', // Уникальный URL для Product 3
-    'https://ir.ozone.ru/s3/multimedia-1/wc700/6703995385.jpg', // Уникальный URL для Product 4
-    'https://ir.ozone.ru/s3/multimedia-4/wc700/6493203712.jpg', // Уникальный URL для Product 5
-    'https://ir.ozone.ru/s3/multimedia-5/wc700/6359567105.jpg', // Уникальный URL для Product 6
-  ];
-  final List<double> prices = [99.99, 149.99, 79.99, 129.99, 89.99, 169.99];
+final List<String> products = [
+'Product 1',
+'Product 2',
+'Product 3',
+'Product 4',
+'Product 5',
+'Product 6',
+];
+final List<String> imageUrls = [
+'https://ir.ozone.ru/s3/multimedia-i/wc700/6876804798.jpg',
+'https://ir.ozone.ru/s3/multimedia-1-c/wc700/6935215644.jpg',
+'https://ir.ozone.ru/s3/multimedia-f/wc700/6808969983.jpg',
+'https://ir.ozone.ru/s3/multimedia-v/wc700/6437172367.jpg',
+'https://ir.ozone.ru/s3/multimedia-0/wc700/6866383968.jpg',
+'https://ir.ozone.ru/s3/multimedia-k/wc700/6768842528.jpg',
+];
+final List<double> prices = [99.99, 149.99, 79.99, 129.99, 89.99, 169.99];
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Online Store'),
-      ),
-      body: GridView.builder(
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          crossAxisSpacing: 10.0,
-          mainAxisSpacing: 10.0,
-          childAspectRatio: 0.7,
-        ),
-        itemCount: products.length,
-        itemBuilder: (BuildContext context, int index) {
-          return ProductItem(
-            productName: products[index],
-            imageUrl: imageUrls[index],
-            price: prices[index],
-          );
-        },
-      ),
-    );
-  }
+@override
+Widget build(BuildContext context) {
+return Scaffold(
+appBar: AppBar(
+title: Text('Online Store'),
+),
+body: GridView.builder(
+gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+crossAxisCount: 2,
+crossAxisSpacing: 10.0,
+mainAxisSpacing: 10.0,
+childAspectRatio: 0.7,
+),
+itemCount: products.length,
+itemBuilder: (BuildContext context, int index) {
+return GestureDetector(
+onTap: () {
+Navigator.push(
+context,
+MaterialPageRoute(
+builder: (context) => ProductDetailsScreen(
+productName: products[index],
+imageUrl: imageUrls[index],
+price: prices[index],
+),
+),
+);
+},
+child: ProductItem(
+productName: products[index],
+imageUrl: imageUrls[index],
+price: prices[index],
+),
+);
+},
+),
+);
+}
 }
 
 class ProductItem extends StatelessWidget {
-  final String productName;
-  final String imageUrl;
-  final double price;
+final String productName;
+final String imageUrl;
+final double price;
 
-  ProductItem({required this.productName, required this.imageUrl, required this.price});
+ProductItem({required this.productName, required this.imageUrl, required this.price});
 
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      elevation: 5.0,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Image.network(
-            imageUrl, // Использование уникального URL для изображения товара
-            height: 700,
-            width: double.infinity,
-            fit: BoxFit.cover,
-          ),
-          Padding(
-            padding: EdgeInsets.all(8.0),
-            child: Text(
-              productName,
-              style: TextStyle(
-                fontSize: 18.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 8.0),
-            child: Text(
-              '\$$price', // Использование уникальной цены для товара
-              style: TextStyle(
-                fontSize: 16.0,
-                color: Colors.grey,
-              ),
-            ),
-          ),
-          SizedBox(height: 8.0),
-          Padding(
-            padding: EdgeInsets.all(8.0),
-            child: ElevatedButton(
-              onPressed: () {},
-              child: Text('Add to Cart'),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
+@override
+Widget build(BuildContext context) {
+return Card(
+elevation: 5.0,
+child: Column(
+crossAxisAlignment: CrossAxisAlignment.start,
+children: [
+Image.network(
+imageUrl,
+height: 700,
+width: double.infinity,
+fit: BoxFit.cover,
+),
+Padding(
+padding: EdgeInsets.all(8.0),
+child: Text(
+productName,
+style: TextStyle(
+fontSize: 18.0,
+fontWeight: FontWeight.bold,
+),
+),
+),
+Padding(
+padding: EdgeInsets.symmetric(horizontal: 8.0),
+child: Text(
+'\$$price',
+style: TextStyle(
+fontSize: 16.0,
+color: Colors.grey,
+),
+),
+),
+SizedBox(height: 8.0),
+Padding(
+padding: EdgeInsets.all(8.0),
+child: ElevatedButton(
+onPressed: () {},
+child: Text('Add to Cart'),
+),
+),
+],
+),
+);
+}
+}
+
+class ProductDetailsScreen extends StatelessWidget {
+final String productName;
+final String imageUrl;
+final double price;
+
+ProductDetailsScreen({required this.productName, required this.imageUrl, required this.price});
+
+@override
+Widget build(BuildContext context) {
+return Scaffold(
+appBar: AppBar(
+title: Text('Product Details'),
+
+
+),
+body: Center(
+child: Column(
+mainAxisAlignment: MainAxisAlignment.center,
+children: [
+Image.network(
+imageUrl,
+height: 900,
+width: 900,
+fit: BoxFit.cover,
+),
+SizedBox(height: 20.0),
+Text(
+productName,
+style: TextStyle(
+fontSize: 24.0,
+fontWeight: FontWeight.bold,
+),
+),
+SizedBox(height: 10.0),
+Text(
+'\$$price',
+style: TextStyle(
+fontSize: 20.0,
+color: Colors.grey,
+),
+),
+],
+),
+),
+);
+}
 }
